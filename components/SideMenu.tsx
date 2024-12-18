@@ -1,30 +1,46 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Animated } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-const { width } = Dimensions.get('window');
+// Define navigation parameters for each screen
+export type RootParamList = {
+  Home: undefined;
+};
 
 interface SideMenuProps {
-  menuItems: string[]; // Array of menu item names
-  slideAnim: Animated.Value; // Animation value
+  menuItems: string[]; // Array of menu item names to display
+  slideAnim: Animated.Value; // Animation value to handle slide
   onClose: () => void; // Function to close the menu
+  navigation: NativeStackNavigationProp<RootParamList>; // Navigation prop
 }
 
-const SideMenu: React.FC<SideMenuProps> = ({ menuItems, slideAnim, onClose }) => {
+const SideMenu: React.FC<SideMenuProps> = ({ menuItems, slideAnim, onClose, navigation }) => {
+
+  const handleMenuItemPress = (item: string) => {
+    // Check if the item is a valid screen name, then navigate
+    const validPages: (keyof RootParamList)[] = ['Home'];
+
+    if (validPages.includes(item as keyof RootParamList)) {
+      navigation.navigate(item as keyof RootParamList); // Navigate to the selected screen
+    } else {
+      navigation.navigate('Home'); // Default to 'Home' if the item is invalid
+    }
+    onClose(); // Close the menu after navigation
+  };
+
   return (
     <Animated.View
-      style={[styles.sideMenu, { transform: [{ translateX: slideAnim }] }]}
-    >
-      {/* Close Button */}
+      style={[styles.sideMenu, { transform: [{ translateX: slideAnim }] }]}>
+      
       <TouchableOpacity onPress={onClose} style={styles.closeButton}>
         <Text style={styles.closeButtonText}>✕</Text>
       </TouchableOpacity>
 
-      {/* Menu Options */}
       <View style={styles.menuOptions}>
         {menuItems.map((item, index) => (
-          <Text key={index} style={styles.menuItem}>
-            {item}
-          </Text>
+          <TouchableOpacity key={index} onPress={() => handleMenuItemPress(item)}>
+            <Text style={styles.menuItem}>{item}</Text>
+          </TouchableOpacity>
         ))}
       </View>
     </Animated.View>
@@ -36,7 +52,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: 0,
-    width: width * 0.40,
+    width: '60%',
     height: '100%',
     backgroundColor: '#1e1e1e',
     paddingTop: 40,

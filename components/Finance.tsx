@@ -25,7 +25,7 @@ const Finance = () => {
     }).start(() => setMenuVisible(false));
   };
 
-  const financeMenuItems = ['Dashboard', 'Reports', 'Budgets', 'Transactions'];
+  //const financeMenuItems = ['Dashboard', 'Reports', 'Budgets', 'Transactions'];
 
   return (
     <View style={styles.container}>
@@ -39,10 +39,6 @@ const Finance = () => {
       <View style={styles.content}>
         <Text>Welcome to the Finance Page!</Text>
       </View>
-
-      {menuVisible && (
-        <SideMenu menuItems={financeMenuItems} slideAnim={slideAnim} onClose={closeMenu} />
-      )}
     </View>
   );
 };
