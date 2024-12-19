@@ -1,10 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { globalStyles } from "../styles/globalStyles"; // Import global styles
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the Home Page!</Text>
+      <Text style={globalStyles.headerTitle}>Welcome to the Home Page!</Text>
+      <Text style={globalStyles.bodyText}>Enjoy using custom fonts globally!</Text>
     </View>
   );
 }
@@ -12,13 +14,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DEB887',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 24,
-    color: '#8B4513',
-    fontWeight: 'bold',
+    backgroundColor: "#DEB887",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -6,7 +6,7 @@ export default function LoginScreen({ navigation }: any) {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    if (email === 'T' && password === '1') {
+    if (email === '' && password === '') {
       Alert.alert('Login Successful', 'Welcome to the Home Page!');
       navigation.navigate('Home');
     } else {
