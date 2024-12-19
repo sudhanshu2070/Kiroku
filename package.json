@@ -15,7 +15,9 @@
     "@types/react-navigation": "^3.0.8",
     "babel-preset-expo": "^12.0.4",
     "expo": "~52.0.18",
+    "expo-font": "~13.0.2",
     "expo-gl": "^15.0.2",
+    "expo-splash-screen": "~0.29.18",
     "expo-status-bar": "~2.0.0",
     "ogl": "^1.0.9",
     "react": "18.3.1",
@@ -25,13 +27,13 @@
     "react-native-reanimated": "^3.16.5",
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^4.3.0",
-    "react-native-vector-icons": "^10.2.0",
-    "expo-font": "~13.0.2",
-    "expo-splash-screen": "~0.29.18"
+    "react-native-vector-icons": "^10.2.0"
   },
   "devDependencies": {
+    "@react-native-community/cli": "latest",
     "@babel/core": "^7.25.2",
     "@types/react": "~18.3.12",
+    "@types/react-native-vector-icons": "^6.4.18",
     "typescript": "^5.3.3"
   },
   "private": true
