@@ -29,12 +29,12 @@ const Finance = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleBar}>
+      {/* <View style={styles.titleBar}>
         <Text style={styles.titleText}>Finance</Text>
         <TouchableOpacity onPress={openMenu} style={styles.menuButton}>
           <Text style={styles.menuButtonText}>☰</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
 
       <View style={styles.content}>
         <Text>Welcome to the Finance Page!</Text>

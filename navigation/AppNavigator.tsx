@@ -8,13 +8,13 @@ import { DrawerNavigationProp } from "@react-navigation/drawer";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
-import ProfileScreen from "../screens/ProfileScreen"; // Add a ProfileScreen for navigation
-import { globalStyles } from "../styles/globalStyles"; // Import global styles
+import ProfileScreen from "../screens/ProfileScreen"; 
+import { globalStyles } from "../styles/globalStyles"; 
+import DrawerNavigator from "./DrawerNavigator";
 
 const Stack = createStackNavigator();
 
 const AppNavigator: React.FC = () => {
-  // Type the navigation object to avoid TypeScript errors
   const navigation = useNavigation<DrawerNavigationProp<any>>();
 
   // Function to open the Drawer
@@ -26,9 +26,9 @@ const AppNavigator: React.FC = () => {
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{
-        headerStyle: { backgroundColor: "#add8e6" }, // Light blue background
+        headerStyle: { backgroundColor: "#add8e6" }, 
         headerTintColor: "#ffffff",
-        headerTitleStyle: globalStyles.headerTitle, // Apply global header title style
+        headerTitleStyle: globalStyles.headerTitle, 
       }}
     >
       {/* Login Screen */}
@@ -44,11 +44,6 @@ const AppNavigator: React.FC = () => {
         component={SignUpScreen}
         options={{
           headerShown: false,
-          // headerLeft: () => (
-          //   <TouchableOpacity onPress={openDrawer} style={{ marginLeft: 15 }}>
-          //     <Icon name="menu" size={28} color="#ffffff" />
-          //   </TouchableOpacity>
-          // ),
         }}
       />
 
@@ -67,16 +62,19 @@ const AppNavigator: React.FC = () => {
       />
 
       {/* Profile Screen */}
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Profile"
         component={ProfileScreen}
         options={{
           title: "Profile",
-          headerLeft: () => (
-            <TouchableOpacity onPress={openDrawer} style={{ marginLeft: 15 }}>
-              <Icon name="menu" size={28} color="#ffffff" />
-            </TouchableOpacity>
-          ),
+        }}
+      /> */}
+
+      <Stack.Screen
+        name="Drawer"
+        component={DrawerNavigator}
+        options={{
+          headerShown:false
         }}
       />
     </Stack.Navigator>
